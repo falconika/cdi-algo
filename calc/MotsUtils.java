@@ -1,5 +1,8 @@
 package calc;
 
+import java.util.Collections;
+import java.util.Random;
+
 public class MotsUtils {
 	public static String inverser(String str) {
 
@@ -41,23 +44,23 @@ public class MotsUtils {
 		return res;
 	}
 	public static String doubleAndSoustract(int param){
-	return param*2 + ""+(param-1);
-	
+		return param*2 + ""+(param-1);
+
 	}
-	
-//	public static String afficherNombreOccurence(String str) {
-//		StringBuilder res = new StringBuilder();
-//////////////////////////////////////////////////					INITIALISATION
-		
-///////////////////////////////////////////////////////////           DECLARATION
-///////////////////////////////////////////////////////////           Parcourir le mot
-///////////////////////////////////////////////////////////           	si occurence==> compteurLettre ++ 
-///////////////////////////////////////////////////////////           	append a resultat= valeur de i se repete compteurLettre
-///////////////////////////////////////////////////////////           parcourir le reste du mot 
-///////////////////////////////////////////////////////////           pour chaque occurence ajouter 		
-///////////////////////////////////////////////////////////           retour		
-//		return res.toString();		
-//	}
+
+	//	public static String afficherNombreOccurence(String str) {
+	//		StringBuilder res = new StringBuilder();
+	//////////////////////////////////////////////////					INITIALISATION
+
+	///////////////////////////////////////////////////////////           DECLARATION
+	///////////////////////////////////////////////////////////           Parcourir le mot
+	///////////////////////////////////////////////////////////           	si occurence==> compteurLettre ++ 
+	///////////////////////////////////////////////////////////           	append a resultat= valeur de i se repete compteurLettre
+	///////////////////////////////////////////////////////////           parcourir le reste du mot 
+	///////////////////////////////////////////////////////////           pour chaque occurence ajouter 		
+	///////////////////////////////////////////////////////////           retour		
+	//		return res.toString();		
+	//	}
 	public static void afficherNombreOccurence(String str) {
 		StringBuilder sb = new StringBuilder();
 		str = str.toLowerCase();
@@ -83,5 +86,47 @@ public class MotsUtils {
 			} while (idSeq != -1);
 			System.out.println(seq + " " + nbSeq);
 		}
+	}
+
+
+	public static long sommeUnicodes(String str) {
+		long res = 0;
+		for (int i = 0; i < str.length(); i++) {
+			int unicode =(int) str.charAt(i);
+			res = res + unicode;
+		}
+		return   res;
+
+	}
+	
+	public static String ted(int param) {
+		String str= param +"";
+		int total=0;
+		int entier=0;
+		int decimal=0;
+//		calculer entier
+		for (int i = 0; i < str.length() ; i++) {
+			if(Character.isDigit(str.charAt(i))) {
+//				si c'est un nombre j'additionne
+				entier= entier+Character.getNumericValue(str.charAt(i));
+			}
+		}
+		System.out.println(entier);
+//		calculer decimal
+		for (int i = str.length()-i; i > str.length() ; i++) {
+			if(Character.isDigit(str.charAt(i))) {
+//				si c'est un nombre j'additionne
+				decimal= decimal+Character.getNumericValue(str.charAt(i));
+			}
+		}
+		System.out.println(decimal);
+
+//		calculer total
+		total= entier+ decimal;
+		System.out.println(total);
+
+		String res= "T"+total+"E"+entier+"D"+decimal ;
+		return   res;
+
 	}
 }
